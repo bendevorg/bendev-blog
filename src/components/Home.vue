@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-layout
     justify-center
     align-center
@@ -11,5 +12,6 @@
         <h1>お客さんはようこそ</h1>
       </v-card>
     </v-flex>
-  </v-layout>  
+  </v-layout>
+  </div>  
 </template>

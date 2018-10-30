@@ -1,4 +1,4 @@
-import Example from './components/Example';
+import Home from './components/Home';
 
 const routes = [
   {
@@ -6,7 +6,7 @@ const routes = [
     name: 'Default',
     components: {
       // 'menu-top': Navmenu,
-      default: Example
+      default: Home
       // 'foot-compo': Footer
     }
   }
