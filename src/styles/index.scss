@@ -1,0 +1,28 @@
+/*!
+Theme Name: Bendev
+Version: 0.0.1
+Author: Bendev
+*/
+
+@import 'fonts.scss';
+@import 'constants.scss';
+@import 'colors.scss';
+@import 'header.scss';
+
+html {
+  font-family: $lato;
+}
+
+body {
+  color: $grey;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+
+}
+a {
+  text-decoration: none;
+  color: $grey;
+}
