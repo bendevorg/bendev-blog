@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = {
@@ -26,10 +27,13 @@ module.exports = {
     new HardSourceWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
+    }),
     new AssetsPlugin({
-			path: path.resolve(__dirname, 'build'),
-			filename: 'webpack-manifest.json'
-		}),
+      path: path.resolve(__dirname, 'build'),
+      filename: 'webpack-manifest.json',
+    }),
   ],
   module: {
     rules: [
@@ -40,10 +44,19 @@ module.exports = {
       },
       {
         test: /\.eot(\?v=\d+.\d+.\d+)?$/,
-        use: ['file-loader'],
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -56,6 +69,7 @@ module.exports = {
       },
       {
         test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -68,6 +82,7 @@ module.exports = {
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -79,20 +94,22 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|ico)$/i,
+        test: /\.(jpe?g|png|gif|ico|svg)$/i,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[path][name].[ext]',
             },
           },
         ],
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
+        exclude: /node_modules/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {

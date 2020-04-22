@@ -40,6 +40,7 @@ module.exports = {
       },
       {
         test: /\.eot(\?v=\d+.\d+.\d+)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -51,6 +52,7 @@ module.exports = {
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -64,6 +66,7 @@ module.exports = {
       },
       {
         test: /\.[ot]tf(\?v=\d+.\d+.\d+)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -77,6 +80,7 @@ module.exports = {
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'url-loader',
@@ -89,18 +93,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|ico)$/i,
+        test: /\.(jpe?g|png|gif|ico|svg)$/i,
+        exclude: /node_modules/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
+              name: '[path][name].[ext]',
             },
           },
         ],
       },
       {
         test: /(\.css|\.scss|\.sass)$/,
+        exclude: /node_modules/,
         use: [
           MiniCssExtractPlugin.loader,
           {
