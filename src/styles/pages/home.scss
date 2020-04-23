@@ -1,7 +1,8 @@
 .home {
-  padding: 48px 16px;
+  box-sizing: border-box;
+  padding: 32px 16px;
   @media (min-width: 768px) {
-    padding: 64px 32px;
+    padding: 48px 32px;
   }
   .home__title {
     text-align: center;

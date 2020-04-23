@@ -1,0 +1,16 @@
+.single-post {
+  box-sizing: border-box;
+  padding: 32px 16px;
+  width: 100%; 
+  @media (min-width: 768px) {
+    padding: 48px 32px;
+  }
+  .single-post__title {
+    text-align: center;
+    font-size: 2.5rem;
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+    margin-bottom: 48px;
+  }
+}
