@@ -16,9 +16,13 @@
           <h3 class="post-card__title"><?= the_title(); ?></h3>
           <p class="post-card__description"><?= get_the_excerpt(); ?></p>
           <div class="post-card__tags">
+            <?php $tags = get_the_tags();
+              foreach ( $tags as $tag ) {
+            ?>
             <div class="post-card__tag" href="#">
-              Coding Adventures
+              <?= $tag->name ?>
             </div>
+            <?php } ?>
           </div>
         </div>
       </a>
