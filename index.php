@@ -10,7 +10,7 @@
     ?>
       <a class="post-card" href="<?= the_permalink(); ?>">
         <div class="post-card__image">
-          <img class="post-card__image" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
+          <img class="post-card__image" src="<?= get_the_post_thumbnail_url() ?>">
         </div>
         <div class="post-card__content">
           <h3 class="post-card__title"><?= the_title(); ?></h3>

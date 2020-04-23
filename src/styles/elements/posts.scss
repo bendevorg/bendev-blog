@@ -25,6 +25,8 @@
   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   text-decoration: none;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
   .post-card__image {
     border-top-left-radius: 16px;
@@ -50,6 +52,11 @@
 
   .post-card__content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-grow: 1;
 
     .post-card__title {
       font-size: 1.7rem;
